@@ -1,6 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import cookieParser from 'cookie-parser';
+import cookieParser from 'cookie-parser'; 
 dotenv.config()
 import connectDB from './CONNECT/connectDB.js';
 import userRouter from './routes/user.routes.js';
@@ -34,7 +34,7 @@ app.use((err, req, res, next) => {
  const statusCode = err.statusCode || 500;
  const message = err.message || 'internal server error';
  
- console.log(err)
+//  console.log(err)
  return res.status(statusCode).json({
     success: false,
     statusCode,
