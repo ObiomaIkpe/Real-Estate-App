@@ -5,23 +5,22 @@ import About from './pages/About'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import SignUp from './pages/SignUp'
-import Header from './assets/components/Header'
-import PrivateRoutes from './assets/components/PrivateRoutes'
+import Header from '../components/Header'
+import PrivateRoute from '../components/PrivateRoute';
 
 const App = () => {
   return (
   <BrowserRouter>
-  <Header />
+  <Header /> 
   <Routes>
       <Route path='/' element={<Home />}  />
       <Route path='/sign-in' element={<Signin />}  />
       <Route path='/about' element={<About/>}  />
       <Route path='/sign-up' element={<SignUp />}  />
 
-      <Route element={<PrivateRoutes /> } >
+      <Route element={<PrivateRoute />}>
       <Route path='/profile' element={<Profile />}  />
-      </Route>
-      
+      </Route>      
   </Routes>
   </BrowserRouter>
   )

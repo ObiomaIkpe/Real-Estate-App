@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
-import Oauth from '../assets/components/Oauth';
+import Oauth from '../../components/Oauth';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({})

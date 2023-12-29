@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { signInStart, signInSuccess, signInFailure } from '../redux/user/userSlice';
-import Oauth from '../assets/components/Oauth';
+import Oauth from '../../components/Oauth';
 
 const SignUp = () => {
   const [formData, setFormData] = useState({})
@@ -53,7 +53,7 @@ const SignUp = () => {
       console.log(error)
       dispatch(signInFailure(error.message))
       // setLoading(false);
-      // setError(error.message);
+      // setError(error.message); 
     }
     
     }

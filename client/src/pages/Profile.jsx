@@ -4,11 +4,13 @@ import {app} from '../firebase.js';
 import { updateUserFailure, updateUserSuccess, updateUserStart, deleteuserFailure, deleteUserSuccess, deleteUserStart, signoutUserStart } from "../redux/user/userSlice";
 
 import { useRef, useState, useEffect } from 'react';
+
+
 const Profile = () => {
+  const {currentUser, loading, error} = useSelector((state) => state.user);
   const [filePerc, setFilePerc] = useState(0);
   const [fileUploadError, setFileUploadError] = useState(false);
   const fileRef = useRef(null);
-  const {currentUser, loading, error} = useSelector((state) => state.user);
   const [formData, setFormData] =  useState({});
   const [updateSuccess, setUpdateSuccess] = useState(false)
   console.log(filePerc)
@@ -48,11 +50,11 @@ const handleFileUpload = (file) => {
   () => {
     getDownloadURL(upLoadTask.snapshot.ref)
     .then((downloadURL) => 
-      setFormData({...formData, avatar: downloadURL})
+      setFormData({ ...formData, avatar: downloadURL })
     );
   }
   );
-}
+};
 
 
 const handleChange = (e) => {
