@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from "react-redux";
 import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/storage';
 import {app} from '../firebase.js';
 import { updateUserFailure, updateUserSuccess, updateUserStart, deleteuserFailure, deleteUserSuccess, deleteUserStart, signoutUserStart } from "../redux/user/userSlice";
-
 import { useRef, useState, useEffect } from 'react';
 
 
@@ -38,6 +37,8 @@ const handleFileUpload = (file) => {
   const storageRef = ref(storage, fileName);
   const upLoadTask = uploadBytesResumable(storageRef, file);
 
+
+
   upLoadTask.on('state_changed',
   (snapshot) => {
     const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -60,6 +61,7 @@ const handleFileUpload = (file) => {
 const handleChange = (e) => {
   setFormData({ ...formData, [e.target.id]: e.target.value })
 };
+
 
 const handleSubmit = async (e) => { 
   e.preventDefault();
@@ -104,6 +106,8 @@ const handleDeleteUser = async () => {
   }
 }
 
+
+
 const handleSignOut = async ( ) => {
   try {
     dispatch(signoutUserStart());
@@ -120,8 +124,8 @@ const handleSignOut = async ( ) => {
 
   }
 }
-
 console.log(formData)
+
 
   return (
     <div className="p-3 max-w-lg mx-auto">
@@ -130,12 +134,21 @@ console.log(formData)
     </h1>
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
 
-      <input type="file" ref={fileRef} hidden accept='image/*' onChange={(e) => setFile(e.target.files[0])}/>
+      <input 
+      type="file" 
+      ref={fileRef} 
+      hidden 
+      accept='image/*' 
+      onChange={(e) => setFile(e.target.files[0])}/>
 
-      <img onClick={() => fileRef.current.click()} src={formData.avatar || currentUser.avatar} alt='profile' className="rounded-full h-24 -24 object-cover cursor-pointer self-center mt-2"/>
+      <img 
+      onClick={() => fileRef.current.click()} 
+      src={formData.avatar || currentUser.avatar} 
+      alt='profile' 
+      className="rounded-full h-24 -24 object-cover cursor-pointer self-center mt-2"/>
      
      <p className="text-sm self-center">
-        {fileUploadError ? ( <span className="text-red-700">Error in image upload</span> )
+        {fileUploadError ? ( <span className="text-red-700">Error (Image must be less than 2mb)</span> )
          : filePerc > 0 && filePerc < 100 ? (<span>{`uploading ${filePerc} %`}</span>) 
          : filePerc === 100 ? (<span className="text-green-700">Image uploaded succesfully</span>) : (" ")}
       </p>
@@ -164,8 +177,18 @@ console.log(formData)
       <button disabled={loading} className="bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80">{loading ? 'Loading...' : 'Update'}</button>
     </form>
     <div className="flex justify-between mt-5">
-      <span onClick={handleDeleteUser} className="text-red-700 cursor-pointer">Delete Account</span>
-      <span onClick={handleSignOut} className="text-red-700 cursor-pointer">Sign Out</span>
+      <span 
+      onClick={handleDeleteUser} 
+      className="text-red-700 cursor-pointer">
+        Delete Account
+        </span>
+
+      <span 
+      onClick={handleSignOut} 
+      className="text-red-700 cursor-pointer">
+        Sign Out
+        </span>
+
     </div>
 
     <p className='text-red-700 mt-5'>{ error ? error : ''}</p>

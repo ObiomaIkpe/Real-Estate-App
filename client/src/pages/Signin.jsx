@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signInStart, signInSuccess, signInFailure } from '../redux/user/userSlice';
 import Oauth from '../../components/Oauth';
 
-const SignUp = () => {
+const SignIn = () => {
   const [formData, setFormData] = useState({})
   // const [error, setError] = useState(null)
   // const [loading, setLoading] = useState(false)
@@ -81,4 +81,4 @@ const SignUp = () => {
   )
 }
 
-export default SignUp
+export default SignIn
