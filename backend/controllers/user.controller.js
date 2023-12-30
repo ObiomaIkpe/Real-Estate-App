@@ -4,12 +4,6 @@ import User from "../models/User.models.js";
 
 
 
-const signToken = id => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, {
-      expiresIn: process.env.JWT_EXPIRES_IN
-    });
-  };
-
 
 
 export const test = (req, res) => {
@@ -25,7 +19,6 @@ export const test = (req, res) => {
 
 export const updateUser = async(req, res, next) => {
 
-    //const user = await User.findByIdAndUpdate()
 
     if (req.user.id !== req.params.id) return next(errorHandler('you are not authenticated', 401));
     try {
