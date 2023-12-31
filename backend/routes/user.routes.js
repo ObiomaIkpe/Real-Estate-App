@@ -5,7 +5,7 @@ import { verifyToken } from '../utils/verifyUser.js';
 
 router.route('/test').get(test)
 router.route('/update/:id').post(verifyToken, updateUser);
-router.route('/delete/:id').delete( deleteUser);
+router.route('/delete/:id').delete(verifyToken, deleteUser);
 
 
 

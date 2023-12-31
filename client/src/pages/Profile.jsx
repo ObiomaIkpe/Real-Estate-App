@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import {getDownloadURL, getStorage, ref, uploadBytesResumable} from 'firebase/storage';
 import {app} from '../firebase.js';
-import { updateUserFailure, updateUserSuccess, updateUserStart, deleteuserFailure, deleteUserSuccess, deleteUserStart, signoutUserStart } from "../redux/user/userSlice";
+import { updateUserFailure, updateUserSuccess, updateUserStart, deleteuserFailure, deleteUserSuccess, deleteUserStart, signoutUserStart, signoutUserSuccess, signoutuserFailure } from "../redux/user/userSlice";
 import { useRef, useState, useEffect } from 'react';
 
 
@@ -98,7 +98,7 @@ const handleDeleteUser = async () => {
      const data = res.json();
      if (data.success === false) {
       dispatch(deleteuserFailure(data.message))
-      return;
+      return; 
      }
      dispatch(deleteUserSuccess(data))
   } catch (error) {
