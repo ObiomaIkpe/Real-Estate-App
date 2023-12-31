@@ -20,7 +20,7 @@ const listingSchema = new mongoose.Schema({
   discountPrice: {
     type: Number,
     required: true,
-  },
+  }, 
   bathrooms: {
     type: Number,
     required: true,
@@ -50,7 +50,7 @@ const listingSchema = new mongoose.Schema({
     required: true
   },
   userRef: {
-    type: Boolean,
+    type: String,
     required: true,
   }
 }, {timeStamps: true})

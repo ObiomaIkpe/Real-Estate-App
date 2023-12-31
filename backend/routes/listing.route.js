@@ -5,5 +5,5 @@ import {verifyToken } from '../utils/verifyUser.js'
 
 router.route('/create').post(verifyToken, createListing);
 
-export default router
+export default router 
 
