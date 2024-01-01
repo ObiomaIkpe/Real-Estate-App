@@ -103,10 +103,7 @@ export default function CreateListing() {
     }
 
     if (
-      e.target.id === 'parking' ||
-      e.target.id === 'furnished' ||
-      e.target.id === 'offer'
-    ) {
+      e.target.id === 'parking' || e.target.id === 'furnished' || e.target.id === 'offer') {
       setFormData({
         ...formData,
         [e.target.id]: e.target.checked,
