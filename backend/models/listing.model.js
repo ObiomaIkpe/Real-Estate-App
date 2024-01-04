@@ -53,7 +53,7 @@ const listingSchema = new mongoose.Schema({
     type: String,
     required: true,
   }
-}, {timeStamps: true})
+}, {timestamps: true})
 
 const Listing = new mongoose.model('Listing', listingSchema)
 
