@@ -6,6 +6,7 @@ const Search = () => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [listings, setListing] = useState([]);
+    const [showMore, setShowMore] = useState(false)
     console.log(listings)
   const [sidebardata, setsidebardata] = useState({
     searchTerm : '',
@@ -54,9 +55,14 @@ const Search = () => {
 
     const fetchListings = async () => {
         setLoading(true)
+        setShowMore(false)
         const searchQuery = urlParams.toString();
         const res = await fetch(`/api/listing/get?${searchQuery}`);
         const data = await res.json();
+
+        if (data.length < 8){
+          setShowMore(true)
+        }
         setListing(data);
         setLoading(false)
 
@@ -67,6 +73,26 @@ const Search = () => {
   }, [location.search])
 
   console.log(sidebardata);
+
+
+  const onShowMoreClick = async () => {
+    const numberOfListings = listings.length;
+    const startIndex = numberOfListings;
+    const urlParams =  new URLSearchParams(location.search);
+    urlParams.set('startIndex', startIndex);
+    const searchQuery = urlParams.toString();
+
+    const res = await fetch(`/api/listing/get?${searchQuery}`);
+    const data = await res.json();
+    
+    if(data.length > 6 ) {
+        setShowMore(true)
+    } else{
+      setShowMore(false)
+    }
+
+    setListing([...listings, ...data])
+  }
 
   const handleChange = (e) => {
     if(e.target.id === 'all' || e.target.id === 'rent' || e.target.id === 'sale'){
@@ -206,6 +232,11 @@ const handleSubmit = (e) => {
               {
                 !loading && listings && listings.map((listing) => <ListingItem key={listing._id} listing={listing} 
                 /> )}
+
+                {showMore && (
+                  <button onClick={onShowMoreClick} className='text-green-700 hover:underline p-7 text-center w-full'
+                  > show more</button>
+                )}
 
             </div>
             </div>
