@@ -5,7 +5,7 @@ import { updateUserFailure, updateUserSuccess, updateUserStart, deleteuserFailur
 import { useRef, useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 
-
+ 
 const Profile = () => {
   const {currentUser, loading, error} = useSelector((state) => state.user);
   const [filePerc, setFilePerc] = useState(0);

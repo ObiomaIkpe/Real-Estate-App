@@ -29,8 +29,9 @@ export const signin = async (req, res, next) => {
         res.cookie('accesstoken', token, {httpOnly: true})
         .status(200)
         .json(rest)
-    } catch (err) {
-        next(err)
+    } catch (error) {
+        console.log(error)
+        next(error)
     }
 }
 
@@ -50,7 +51,7 @@ export const google = async (req, res, next) => {
         const newUser = new User({
             username: req.body.name.split(" ").join("").toLowerCase() + Math.random.toString(36).slice(-4), 
             email: req.body.email, 
-            password: hashedPassword,
+            password: hashedPassword, 
             avatar: req.body.photo
             })
         await newUser.save();

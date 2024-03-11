@@ -4,7 +4,7 @@ import { test, updateUser, deleteUser, getUserListing, getUser } from '../contro
 import { verifyToken } from '../utils/verifyUser.js';
 
 router.route('/test').get(test);
-router.route('/update/:id').post(verifyToken, updateUser);
+router.route('/update/:id').post(verifyToken, updateUser); 
 router.route('/delete/:id').delete(verifyToken, deleteUser);
 router.route('/listings/:id').get(verifyToken, getUserListing);
 router.route('/:id').get(verifyToken, getUser);

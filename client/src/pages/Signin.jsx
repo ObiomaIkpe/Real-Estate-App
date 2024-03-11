@@ -77,7 +77,7 @@ const SignIn = () => {
       </div>
       
       {error && <p className=' bg-black text-red-500 mt-5'>{error}</p>}
-    </div>
+    </div> 
   )
 }
 
