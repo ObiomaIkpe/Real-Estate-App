@@ -37,7 +37,7 @@ const Search = () => {
       parkingFromUrl ||
       furnishedFromUrl ||
       offerFromUrl ||
-      sortFromUrl || 
+      sortFromUrl ||  
       orderFromUrl
     ){
       setsidebardata({
