@@ -31,7 +31,7 @@ const Listing = () => {
 
     const listingId = params.listingId;
 
-console.log(currentUser._id, listing?.userRef)
+console.log(currentUser._id, listing?.userRef) 
 
     useEffect(() => {
         const fetchListing = async () => {
@@ -70,7 +70,7 @@ console.log(currentUser._id, listing?.userRef)
         <Swiper navigation>
             {listing.imageURLs.map((url) => (
                 <SwiperSlide key={url}>
-                    <div className='h-[80vh]' style={{ background: `url(${url}) no-repeat`, backgroundSize: 'cover'}}></div>
+                    <div className='h-[80vh] object-scale-down' style={{ background: `url(${url}) no-repeat`, backgroundSize: 'cover', maxWidth: '100%', }}></div>
                 </SwiperSlide>
             )
             )}

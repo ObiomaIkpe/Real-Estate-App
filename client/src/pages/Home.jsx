@@ -73,7 +73,7 @@ const Home = () => {
         {offerListings &&
           offerListings.length > 0 &&
           offerListings.map((listing) => (
-            <SwiperSlide>
+            <SwiperSlide key={listing._id}>
               <div
                 style={{
                   background: `url(${listing.imageURLs[0]}) center no-repeat`,
@@ -96,7 +96,7 @@ const Home = () => {
               <Link className='text-sm text-blue-800 hover:underline' to={'/search?offer=true'}>Show more offers</Link>
             </div>
             <div className='flex flex-wrap gap-4'>
-              {offerListings.map((listing) => (
+              {offerListings.map((listing, index) => (
                 <ListingItem listing={listing} key={listing._id} />
               ))}
             </div>

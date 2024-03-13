@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react'
 import {FaSearch} from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
+import { IoIosHome } from "react-icons/io";
+import { FcAbout } from "react-icons/fc";
 import {useSelector} from 'react-redux';
 
 const Header = () => {
@@ -39,8 +41,8 @@ const Header = () => {
     </h1>
     </Link>
 
-    <form onSubmit={handleSubmit} className='bg-slate-100 p-3 rounded-lg flex items-center'>
-<input type='text' placeholder='Search...' className='bg-transparent focus:outline-none w-24 sm:w-64'
+    <form onSubmit={handleSubmit} className='hidden bg-slate-100 p-3 rounded-lg flex items-center'>
+<input type='text' placeholder='Search...' className='bg-transparent focus:outline-none w-16 sm:w-64'
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
     />
@@ -52,11 +54,12 @@ const Header = () => {
     </form>
     <ul className='flex gap-4'>
         <Link to='/'> 
-        <li className='hidden sm:inline text-slate-700 hover:underline'>Home</li>
+        <li className=' sm:inline text-slate-700 hover:underline text-2xl'><IoIosHome />
+</li>
         </Link>
 
         <Link to='/about'>
-        <li className='hidden sm:inline text-slate-700 hover:underline'>About
+        <li className=' sm:inline text-slate-700 hover:underline text-2xl'><FcAbout className='text-slate-600 bg-brown'/>
         </li>
         </Link>
         <Link to='/profile'>
