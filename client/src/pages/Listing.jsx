@@ -18,6 +18,9 @@ import Contact from '../../components/Contact';
   
 
 const Listing = () => {
+
+
+  
     SwiperCore.use([Navigation]);
     const params = useParams();
     const { currentUser } = useSelector((state) => state.user);
@@ -70,7 +73,7 @@ console.log(currentUser._id, listing?.userRef)
         <Swiper navigation>
             {listing.imageURLs.map((url) => (
                 <SwiperSlide key={url}>
-                    <div className='h-[80vh] object-scale-down' style={{ background: `url(${url}) no-repeat`, backgroundSize: 'cover', maxWidth: '100%', }}></div>
+                    <div className='h-[550px] object-scale-down' style={{ background: `url(${url}) center no-repeat`, backgroundSize:'cover'  }}></div>
                 </SwiperSlide>
             )
             )}
