@@ -70,9 +70,9 @@ const Home = () => {
       </div>  
 
       <Swiper navigation>
-        {offerListings &&
-          offerListings.length > 0 &&
-          offerListings.map((listing) => (
+        {saleListings &&
+          saleListings.length > 0 &&
+          saleListings.map((listing) => (
             <SwiperSlide key={listing._id}>
               <div
                 style={{
