@@ -32,7 +32,7 @@ const Listing = () => {
     const [copied, setCopied] = useState(false);
 
 
-    const listingId = params.listingId;
+    //const listingId = params.listingId;
 
 console.log(currentUser._id, listing?.userRef) 
 
@@ -40,7 +40,7 @@ console.log(currentUser._id, listing?.userRef)
         const fetchListing = async () => {
             try {
                 setLoading(true)
-                const res = await fetch(`/api/listing/get/${listingId}`);
+                const res = await fetch(`/api/listing/get/${params.listingId}`);
                 const data = await res.json()
                if(data.success === false){
 
@@ -54,11 +54,10 @@ console.log(currentUser._id, listing?.userRef)
             } catch (error) {
                 
                 setError(true);
-            }
-            
-        }
+            }            
+        };
         fetchListing();
-    }, [params.listingId])
+    }, [params.listingId]);
 
 
   return (
