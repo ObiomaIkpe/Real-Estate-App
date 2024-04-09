@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className='py-20 px-4 max-w-6xl mx-auto'>
       <h1 className='text-3xl font-bold mb-4 text-slate-800'>
-        About Aigo Estates
+        About realEstate.Org
       </h1>
       <p className='mb-4 text-slate-800'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error eaque quam minima quod, illum, doloremque amet consequatur consectetur illo porro quas quaerat quos quibusdam adipisci officia maxime quis pariatur molestias, nobis eum possimus quo? Similique placeat tenetur aut odio vero maxime iusto accusantium, ipsa assumenda officiis magni nulla sint vel.</p>
       <p className='mb-4 text-slate-800'>
