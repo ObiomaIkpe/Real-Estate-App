@@ -67,7 +67,7 @@ const Header = () => {
             
         <img className='rounded-full h-7 w-7 object-cover' src={currentUser.avatar} alt='profile'/>
             
-        ): <li className='hidden sm:inline text-slate-700 hover:underline'>Sign In</li>   
+        ): <li className=' sm:inline text-slate-700 hover:underline'>Sign In</li>   
         }
         </Link>
         
